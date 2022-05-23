@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>LDS</title>
+</head>
+<body>
+
+    <script src="anime.min.js"></script>
+
+    <div class="container">
+        <div class="box0"></div>
+        <div class="box1"></div>
+    </div>    
+
+    <script>
+
+        const box0 = document.querySelector('.box0');
+        const box1 = document.querySelector('.box1');
+
+        for(var i=0; i<32; i++){
+            const blocks = document.createElement('div');
+            blocks.classList.add('block0');
+            box0.appendChild(blocks);
+        }
+
+        for(var i=0; i<32; i++){
+            const blocks = document.createElement('div');
+            blocks.classList.add('block1');
+            box1.appendChild(blocks);
+        }
+
+    </script>
+
+    <script src="sound.js"></script>
+
+
+
+
+
+
+</body>
+</html>
