@@ -10,6 +10,7 @@
 <body>
 
     <script src="anime.min.js"></script>
+    <script src="sound.js"></script>
 
     <div class="container">
         <div class="box0"></div>
@@ -35,7 +36,27 @@
 
     </script>
 
-    <script src="sound.js"></script>
+    <script>
+        const sleep = waitTime => new Promise( resolve => setTimeout(resolve, waitTime) );
+        
+        async function snd() {
+            while(true){
+                length = Math.floor( Math.random() * 128 );
+                if (length > 124) {
+                    length = 124
+                }
+                var key = Math.round(length / 4);
+                console.log(key);
+                makeSound(key);
+
+
+                await sleep(3000);
+            }
+        }
+
+        snd()
+
+    </script>
 
 
 
