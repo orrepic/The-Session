@@ -39,7 +39,7 @@
     <script>
         const sleep = waitTime => new Promise( resolve => setTimeout(resolve, waitTime) );
         
-        async function snd() {
+        async function snd1() {
             while(true){
                 length = Math.floor( Math.random() * 128 );
                 if (length > 124) {
@@ -49,12 +49,64 @@
                 console.log(key);
                 makeSound(key);
 
+                anime({
+                targets: '.block1',
+                translateY: function() {
+                    return (anime.random(100, -100))
+                },
+                translateX: function() {
+                    return (anime.random(100, -100))
+                },
+                // rotate: function() {
+                //     return (anime.random(0, -0))
+                // },
+                // duration: 500,
+                // delay: anime.stagger(500),
+                easing: "easeOutElastic(1, 0.4)",
+                duration: 1500,
+            });
 
                 await sleep(3000);
             }
         }
 
-        snd()
+        snd1()
+
+    </script>
+
+    <script>
+        async function snd0() {
+            while(true){
+                length = Math.floor( Math.random() * 128 );
+                if (length > 124) {
+                    length = 124
+                }
+                var key = Math.round(length / 4);
+                console.log(key);
+                makeSound(key);
+
+                anime({
+                targets: '.block0',
+                translateY: function() {
+                    return (anime.random(100, -100))
+                },
+                translateX: function() {
+                    return (anime.random(100, -100))
+                },
+                // rotate: function() {
+                //     return (anime.random(0, -0))
+                // },
+                // duration: 500,
+                // delay: anime.stagger(500),
+                easing: "easeOutElastic(1, 0.4)",
+                duration: 1500,
+            });
+
+                await sleep(3000);
+            }
+        }
+
+        snd0()
 
     </script>
 
