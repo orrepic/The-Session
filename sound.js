@@ -4,20 +4,24 @@ var pitch = [329.628,349.228,369.994,391.995,415.305,440.000,466.164,493.883,523
 
 window.AudioContext = window.AudioContext||window.webkitAudioContext;
 var audioContext = new AudioContext();
-
+var gain = audioContext.createGain();
 var osciillatorNode = audioContext.createOscillator();
 
+osciillatorNode.connect(gain);
 osciillatorNode.frequency.value = pitch[key] / range;
 
 var audioDestinationNode = audioContext.destination;
 
-osciillatorNode.connect(audioDestinationNode);
+gain.gain.setValueAtTime(0, 0);
+gain.gain.linearRampToValueAtTime(0.5, 0.1);
+gain.gain.linearRampToValueAtTime(0, 1);
+gain.connect(audioDestinationNode);
 
 osciillatorNode.start = osciillatorNode.start || osciillatorNode.noteOn;
 osciillatorNode.start();
 
 setTimeout(function(){
     osciillatorNode.stop();
-},1000);
+}, 1000);
 
 }
