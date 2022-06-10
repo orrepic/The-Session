@@ -13,7 +13,7 @@ osciillatorNode.frequency.value = pitch[key] / range;
 var audioDestinationNode = audioContext.destination;
 
 gain.gain.setValueAtTime(0, 0);
-gain.gain.linearRampToValueAtTime(0.5, 0.1);
+gain.gain.linearRampToValueAtTime(0.5, 0.2);
 gain.gain.linearRampToValueAtTime(0, 1);
 gain.connect(audioDestinationNode);
 
